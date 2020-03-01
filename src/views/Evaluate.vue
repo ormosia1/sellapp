@@ -246,7 +246,4 @@ export default {
         }
     }
 }
-.rate .ivu-rate{
-    // margin-right: 0;
-}
 </style>
