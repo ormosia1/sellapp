@@ -13,8 +13,8 @@ export function getSeller(){
     return req.get('api/seller')
 }
 
-export function getGoods(seller){
-    return req.get('api/goods',seller)
+export function getGoods(){
+    return req.get('api/goods')
 }
 
 export function getRatings(){

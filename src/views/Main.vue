@@ -24,7 +24,7 @@
             <router-view></router-view>
         </div>
         <!-- 尾部 -->
-        <div class="footer">
+        <div class="footer" @click="isShow = !isShow">
             <div class="shopCar">
                 <div class="icon">
                     <img src="../assets/imgs/shopCar01.png" alt="">
@@ -34,6 +34,11 @@
             <p>另需配送费￥{{data.deliveryPrice}}元</p>
             <div class="btn">￥20起送</div>
         </div>
+
+        <!-- 购物车面板 -->
+        <transition  name="slide-fade">
+            <div class="shopCarPanel" v-show="isShow"></div>
+        </transition>
     </div>
 </template>
 
@@ -42,6 +47,7 @@
     export default {
         data(){
             return{
+                isShow:false,
                 data:{
                     id:'',  //商家id
                     // description:'', //商品特色活动
@@ -60,6 +66,8 @@
 </script>
 
 <style lang="less" scoped>
+div{
+
 .header{
     height: 140px;
     background-size: cover;
@@ -189,5 +197,28 @@
         background: #2b343b;
         font-size: 16px;
     }
+}
+// 购物车面板
+    .shopCarPanel{
+        width: 100%;
+        height: 100px;
+        background: rgba(189, 188, 188, 0.9);
+        position: fixed;
+        bottom: 60px;
+        left: 0px;
+    }
+}
+/* 可以设置不同的进入和离开动画 */
+/* 设置持续时间和动画函数 */
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .3s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateY(200px);
+  opacity: 0;
 }
 </style>

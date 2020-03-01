@@ -107,7 +107,8 @@ export default {
                 // }
                 // console.log(this.count)
             })
-        }
+        },
+
 };
 </script>
 
