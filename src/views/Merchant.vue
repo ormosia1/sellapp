@@ -67,7 +67,6 @@
             getSeller().then(res=>{
                 console.log(res.data.data);
                 this.data = res.data.data;
-                // this.data.description =res.data.data.supports[0].description;   //商店特色活动
             })
         }
     }

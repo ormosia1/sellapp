@@ -58,10 +58,6 @@
             }
         },
         created(){
-            // 获取id
-            // getSeller().then(res=>{
-            //     this.data.id = res.data.data.id;
-            // });
             // 获取商品列表
             getGoods().then(res=>{
                 this.$store.commit('initGoodsList',res.data.data);

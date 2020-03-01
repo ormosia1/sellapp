@@ -92,20 +92,6 @@ export default {
                     this.list.count = i;
                 }
                     console.log(this.list.count)
-                // for(let i in this.list){
-                //     // this.count++;
-                //     this.list.rateTime = this.list[i].rateTime;
-                //     var date = new Date(this.list.rateTime);
-                //     var year = date.getFullYear();  //年
-                //     var month = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1);
-                //     var day = date.getDate();
-                //     var hour = date.getHours();
-                //     var minute = date.getMinutes();
-                //     this.formatting = year+'-'+month+'-'+day+' '+hour+':'+minute;
-                //     console.log(this.formatting);//2018-9-1 0:0:0
-                //     // console.log(year,month,day)
-                // }
-                // console.log(this.count)
             })
         },
 
