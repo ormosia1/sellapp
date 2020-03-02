@@ -27,8 +27,8 @@
             <div class="title">
                 <div class="top">
                    <i-button type="primary">全部<span class="font">{{list.count}}</span></i-button>
-                   <i-button type="primary">满意<span class="font">{{list.count}}</span></i-button>
-                   <i-button type="primary">不满意<span class="font">{{list.count}}</span></i-button>
+                   <i-button type="primary">满意<span class="font">{{list.count-3}}</span></i-button>
+                   <i-button type="primary">不满意<span class="font">{{list.count-20}}</span></i-button>
                 </div>
                 <div class="bottom">
                     <p>只看有内容的评价</p>
@@ -50,6 +50,7 @@
                         </div>
                         <div class="eva">{{v.text}}</div>
                         <div class="label">
+                            <Icon type="md-thumbs-up" />
                             <div v-for="(item,index) in v.recommend" :key="index">{{item}}</div>
                         </div>
                     </div>
@@ -76,7 +77,7 @@ export default {
         },
         created(){
             getRatings().then(res=>{
-                console.log(res.data.data)
+                // console.log(res.data.data)
                 this.list = res.data.data;
                 for(let i=0; i<this.list.length;i++){
                     this.list.rateTime = this.list[i].rateTime;
@@ -224,6 +225,12 @@ export default {
                             overflow: hidden;
                             white-space: nowrap;
                             text-overflow: ellipsis;
+                            margin-right: 10px;
+                        }
+                        .ivu-icon-md-thumbs-up{
+                            margin-top: 10px;
+                            color: #00a0dc;
+                            font-size: 18px;
                             margin-right: 10px;
                         }
                     }

@@ -26,9 +26,9 @@
                                 <p class="price">￥{{item.price}}<span></span></p>
                             </div>
                             <div class="icon">
-                                <Icon type="md-remove-circle" size='22'/>
-                                <span>{{item.num}}</span>
-                                <Icon type="md-add-circle" size='22' @click="add(1,item.name)"/>                            
+                                <Icon type="md-remove-circle" size='22' v-show="item.num >0" @click="clickChange(-1,item.name)"/>
+                                <span v-show="item.num >0">{{item.num}}</span>
+                                <Icon type="md-add-circle" size='22' @click="clickChange(1,item.name)"/>                            
                             </div>
                         </div>
                     </div>
@@ -47,14 +47,8 @@
     export default {
         data(){
             return{
-                // foods:'',
                 curSelected:0,
                 num:0,
-                data:{
-                    id:'',  //商家id
-                    goods:'',   //商品分类中的每一个商品
-                    goodsName:'',   //每一个商品名称
-                }
             }
         },
         created(){
@@ -63,8 +57,7 @@
                 this.$store.commit('initGoodsList',res.data.data);
             });
             
-            console.log(this.$store)
-            console.log(this.$store.getters)
+            // console.log(this.$store)
         },
         mounted(){
             new BScroll(document.querySelector('.left-div'),{
@@ -94,19 +87,15 @@
                 this.rightDiv.scrollToElement(document.getElementById(i),400)
             },
 
-            // 点击+
-            add(code,name){
-                console.log(code,name)
+            // 点击+|-
+            clickChange(code,name){
                 for(let i of this.getGoodsList){
                     for(let v of i.foods){
                         if(name == v.name){
-                            v.num++
-                            // this.num = v.num;
-                            // this.$store.commit('changeNum',name,v.num)
+                            v.num+=code
                         }
                     }
                 }
-            // console.log(this.num);
             }
         },
 
